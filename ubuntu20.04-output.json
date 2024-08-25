@@ -1,0 +1,24 @@
+{
+    "Operation System": "Ubuntu 20.04",
+    "Vulnerabilities": 3,
+    "Packages": [
+        {
+            "Package": "libtasn1-6 4.16.0-2 arm64",
+            "CVEs": [
+                "CVE-2021-46848"
+            ]
+        },
+        {
+            "Package": "libgcrypt20 1.8.5-5ubuntu1.1 arm64",
+            "CVEs": [
+                "CVE-2024-2236"
+            ]
+        },
+        {
+            "Package": "coreutils 8.30-3ubuntu2 arm64",
+            "CVEs": [
+                "CVE-2016-2781"
+            ]
+        }
+    ]
+}
