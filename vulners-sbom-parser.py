@@ -65,6 +65,23 @@ if __name__ == '__main__':
         for reason in api_result['reasons']:
             print("{:<40}".format(reason['package']), ', '.join(reason['cvelist']))
 
+        if args.output:  # Check if output argument is specified
+            if args.output.endswith(".json"):  # Ensure the output file is a JSON file
+                output_data = {
+                    "Operation System": f"{os_data['name']} {os_data['version']}",
+                    "Vulnerabilities": len(api_result['vulnerabilities']),
+                    "Packages": []
+                }
+                for reason in api_result['reasons']:
+                    output_data["Packages"].append({
+                        "Package": reason['package'],
+                        "CVEs": reason['cvelist']
+                    })
+                with open(args.output, 'w') as outfile:
+                    json.dump(output_data, outfile, indent=4)
+            else:
+                print("Error: Output file must have a .json extension")
+
     else:
         print(f"Error in file {args.filename}.")
         print("Unsupported file format. Please use one of CycloneDX json or xml, SPDX json or Syft json")
