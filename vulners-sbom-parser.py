@@ -83,5 +83,5 @@ if __name__ == '__main__':
                 print("Error: Output file must have a .json extension")
 
     else:
-        print(f"Error in file {args.filename}.")
+        print(f"Error in file {args.input}.")
         print("Unsupported file format. Please use one of CycloneDX json or xml, SPDX json or Syft json")
